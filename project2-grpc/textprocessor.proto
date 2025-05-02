@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package textprocessor;
+
+option go_package = "project2_grpc/serverA/protos;protos";
+
+
+service TextProcessorA {
+  rpc CountWords (TextRequest) returns (TextResponse);
+}
+
+service TextProcessorB {
+  rpc CountCharacters (TextRequest) returns (TextResponse);
+}
+
+message TextRequest {
+  string text = 1;
+}
+
+message TextResponse {
+  int32 result = 1;
+}
